@@ -18,5 +18,14 @@
           })
           .then(function() {});
       };
+
+      $scope.time = new Date();
+      $scope.minDate = new Date();
+      $scope.opened = false;
+      $scope.open = function ($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.opened = !$scope.opened;
+      };
     });
 }());
