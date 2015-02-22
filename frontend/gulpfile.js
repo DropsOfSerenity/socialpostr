@@ -38,6 +38,7 @@
 
   gulp.task('copyAll', function() {
     var tempVendors = gulp.src(mainBowerFiles()).pipe(gulp.dest(paths.tempVendor));
+    console.log(tempVendors);
     var appFiles = gulp.src(paths.appSrc).pipe(gulp.dest(paths.temp));
 
     return gulp.src(paths.index)

@@ -2,6 +2,10 @@
 
 <head>
   <title></title>
+  <!-- vendorInject:css -->
+  <link rel="stylesheet" href="vendor/angular-toastr.css">
+  <!-- endinject -->
+  
   <!-- inject:css -->
   <link rel="stylesheet" href="bootstrap.css">
   <!-- endinject -->
@@ -9,38 +13,34 @@
 
 <body ng-controller="Login">
   <nav class="navbar navbar-default">
-    <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav">
+        <li ui-sref-active="active"><a ui-sref="posts">My Posts</a></li>
+        <li ui-sref-active="active"><a ui-sref="post">New Post</a></li>
+      </ul>
+      <button ng-show="isAuthenticated()" class="btn btn-link navbar-btn pull-right" ng-click="logout()">Logout</button>
+    <button ng-hide="isAuthenticated()" class="btn btn-primary navbar-btn pull-right" ng-click="login()">Login</button>
+    </div>
   </nav>
 
   <div class="container">
-    <button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
-
     <div class="col-sm-8 col-md-6 col-md-offset-2 col-sm-offset-2">
-      <div class="well clearfix">
-        <div class="form-group">
-          <textarea rows=4 type="text" placeholder="tweet message" class="form-control" ng-model="message">
-          </textarea>
-        </div>
-        <p class="input-group">
-          <input class="form-control" type="text" ng-focus="open($event)" placeholder="post date" ng-model="date" datepicker-popup is-open="opened" min-date="minDate">
-          <span class="input-group-btn">
-            <button class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i>
-            </button>
-          </span>
-        </p>
-        <timepicker ng-model="time"></timepicker>
-        <button class="btn btn-primary pull-right" ng-click="tweet()">Tweet</button>
-      </div>
+      <div ui-view></div>
     </div>
   </div>
   <!-- vendorInject:js -->
   <script src="vendor/angular.js"></script>
   <script src="vendor/satellizer.js"></script>
   <script src="vendor/ui-bootstrap-tpls.js"></script>
+  <script src="vendor/angular-ui-router.js"></script>
+  <script src="vendor/angular-toastr.tpls.js"></script>
+  <script src="vendor/angular-animate.js"></script>
   <!-- endinject -->
   <!-- inject:js -->
   <script src="app.js"></script>
   <script src="login.js"></script>
+  <script src="myposts.js"></script>
+  <script src="post.js"></script>
   <!-- endinject -->
 </body>
 
