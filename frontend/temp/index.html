@@ -1,18 +1,35 @@
 <html ng-app="app">
-  <head>
-    <title></title>
-    <!-- inject:css -->
-    <!-- endinject -->
-  </head>
-  <body ng-controller="Login">
-    <button ng-click="login()">Login</button>
-    <!-- vendorInject:js -->
-    <script src="vendor/angular.js"></script>
-    <!-- endinject -->
 
-    <!-- inject:js -->
-    <script src="/temp/app.js"></script>
-    <script src="/temp/login.js"></script>
-    <!-- endinject -->
-  </body>
+<head>
+  <title></title>
+  <!-- inject:css -->
+  <link rel="stylesheet" href="bootstrap.css">
+  <!-- endinject -->
+</head>
+
+<body ng-controller="Login">
+  <nav class="navbar navbar-default">
+    <button ng-show="isAuthenticated()" class="btn btn-link pull-right" ng-click="logout()">Logout</button>
+  </nav>
+
+  <div class="container">
+    <button ng-hide="isAuthenticated()" class="btn btn-primary" ng-click="login()">Login</button>
+
+    <div class="well" ng-show="isAuthenticated()">
+      <div class="form-group">
+        <input type="text" placeholder="tweet message" class="form-control" ng-model="message">
+      </div>
+      <button class="btn btn-default" ng-click="tweet()">Tweet</button>
+    </div>
+  </div>
+  <!-- vendorInject:js -->
+  <script src="vendor/angular.js"></script>
+  <script src="vendor/satellizer.js"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="app.js"></script>
+  <script src="login.js"></script>
+  <!-- endinject -->
+</body>
+
 </html>

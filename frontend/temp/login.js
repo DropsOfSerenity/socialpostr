@@ -2,9 +2,21 @@
   'use strict';
 
   angular.module('app')
-    .controller('Login', function($scope) {
+    .controller('Login', function($http, $scope, $auth) {
+      $scope.isAuthenticated = $auth.isAuthenticated;
+      $scope.logout = function() {
+        $auth.logout();
+      };
+
       $scope.login = function() {
-        console.log('hello');
+        $auth.authenticate('twitter');
+      };
+
+      $scope.tweet = function() {
+        $http.post('/api/post/tweet', {
+            message: $scope.message
+          })
+          .then(function() {});
       };
     });
 }());
