@@ -7,8 +7,8 @@
   <!-- endinject -->
 
   <!-- inject:css -->
-  <link rel="stylesheet" href="bootstrap.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/main.css">
   <!-- endinject -->
 </head>
 
@@ -27,8 +27,8 @@
     <div class="col-sm-8 col-md-6 col-md-offset-2 col-sm-offset-2">
       <div class="jumbotron" ng-hide="isAuthenticated()">
         <img height="200" width="200" src="https://g.twimg.com/Twitter_logo_blue.png" class="img-responsive" alt="Twitter">
-        <h1>make a post!</h1>
-        <p>.. or two.</p>
+        <h1>socialpostr</h1>
+        <p>.. make it so.</p>
         <button class="btn btn-primary btn-lg" ng-click="login()">Login</button>
       </div>
       <div ng-if="isAuthenticated()" ui-view></div>
@@ -44,9 +44,9 @@
   <!-- endinject -->
   <!-- inject:js -->
   <script src="app.js"></script>
-  <script src="login.js"></script>
-  <script src="myposts.js"></script>
-  <script src="post.js"></script>
+  <script src="auth/login.js"></script>
+  <script src="posts/myposts.js"></script>
+  <script src="posts/post.js"></script>
   <!-- endinject -->
 </body>
 
