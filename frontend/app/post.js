@@ -4,9 +4,16 @@
   module.controller('Post', function($scope, $http, $location, toastr) {
 
     var id = $location.search().id;
-    if (id) getPost();
 
-    $scope.save = isEditingPost() ? editPost : newPost;
+    if (isEditingPost()) {
+      $scope.isEditing = true;
+      getPost();
+      $scope.save = editPost;
+    } else {
+      $scope.save = newPost;
+    }
+
+    $scope.delete = deletePost;
 
     $scope.time = new Date();
     $scope.minDate = new Date();
@@ -47,6 +54,13 @@
         })
         .then(function() {
           toastr.success('post edited successfully');
+        });
+    }
+
+    function deletePost() {
+      $http.post('/api/post/destroy/' + id)
+        .then(function() {
+          toastr.info('post deleted successfully');
         });
     }
 
