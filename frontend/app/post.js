@@ -29,7 +29,7 @@
       $http.get('/api/post/' + id).then(function(post) {
         $scope.message = post.data.message;
 
-        var datetime = new Date(post.data.datetime);
+        var datetime = new Date(post.data.scheduledfor);
         $scope.date = datetime;
         $scope.time = datetime;
       });
@@ -39,7 +39,7 @@
       var datetime = new Date($scope.date.getFullYear(), $scope.date.getMonth(), $scope.date.getDate(), $scope.time.getHours(), $scope.time.getMinutes());
       $http.post('/api/post/tweet', {
           message: $scope.message,
-          datetime: datetime
+          scheduledfor: datetime
         })
         .then(function() {
           toastr.success('new post created');
@@ -50,7 +50,7 @@
       var datetime = new Date($scope.date.getFullYear(), $scope.date.getMonth(), $scope.date.getDate(), $scope.time.getHours(), $scope.time.getMinutes());
       $http.post('/api/post/update/' + id, {
           message: $scope.message,
-          datetime: datetime
+          scheduledfor: datetime
         })
         .then(function() {
           toastr.success('post edited successfully');

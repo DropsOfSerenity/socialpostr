@@ -5,7 +5,7 @@
         {{ post.message | limitTo: 25 }}
       </div>
       <div class="text-muted text-right col-xs-6">
-        {{ post.datetime | date:'medium' }}
+        {{ post.scheduledfor | date:'medium' }}
       </div>
     </a>
   </div>

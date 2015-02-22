@@ -1,7 +1,7 @@
 var jwt = require('jwt-simple');
 
 module.exports = function(req, res, next) {
-  if (!req.headers.authorization) return handleError;
+  if (!req.headers.authorization) return handleError(res);
 
   // token needs to come in the form of "Bearer [[token]]"
   var token = req.headers.authorization.split(' ')[1];
@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
   next();
 };
 
-function handleError() {
+function handleError(res) {
   return res.status(401).send({
     error: 'You are not authorized'
   });
