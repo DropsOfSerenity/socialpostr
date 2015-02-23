@@ -7,10 +7,9 @@ describe('Posts', function() {
       scheduledfor: new Date(),
       isPosted: false,
       owner: 1
-    }).exec(function() {});
-
-    Post.find().exec(function(err, posts) {
-      expect(posts.length).to.equal(0);
+    }).exec(function(err, post) {
+      expect(err).to.exist;
+      expect(post).to.be.undefined;
       done();
     });
   });
