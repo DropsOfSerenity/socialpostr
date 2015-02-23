@@ -1,14 +1,17 @@
 /**
 * Post.js
 *
-* @description :: TODO: You might write a short summary of how this model works and what it represents here.
-* @docs        :: http://sailsjs.org/#!documentation/models
+* @description :: represents a twitter post that has been scheduled for a
+* future date.
 */
 
 module.exports = {
 
   attributes: {
-    message: 'string',
+    message: {
+      type: 'string',
+      required: true
+    },
     scheduledfor: 'datetime',
     isPosted: 'boolean',
     owner: {

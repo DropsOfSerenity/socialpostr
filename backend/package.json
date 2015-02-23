@@ -31,7 +31,8 @@
   },
   "scripts": {
     "start": "node app.js",
-    "debug": "node debug app.js"
+    "debug": "node debug app.js",
+    "test": "PORT=9999 NODE_ENV=test mocha -R spec -b --recursive"
   },
   "main": "app.js",
   "repository": {
@@ -39,5 +40,11 @@
     "url": "git://github.com/jschiff/socialposter.git"
   },
   "author": "jschiff",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "barrels": "^1.4.0",
+    "chai": "^2.0.0",
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2"
+  }
 }
