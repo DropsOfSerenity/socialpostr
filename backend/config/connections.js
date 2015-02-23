@@ -20,6 +20,9 @@
  */
 
 module.exports.connections = {
+  test: {
+    adapter: 'sails-memory',
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -63,10 +66,6 @@ module.exports.connections = {
     user: '',
     password: '',
     database: 'socialpostr'
-  },
-
-  test: {
-    adapter: 'sails-memory',
   },
 
   /***************************************************************************
